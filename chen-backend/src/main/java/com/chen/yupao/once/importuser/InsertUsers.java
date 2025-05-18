@@ -28,8 +28,8 @@ public class InsertUsers {
         for (int i = 0; i < INSERT_NUM; i++) {
             User user = new User();
             user.setUsername("沈哈哈");
-            user.setUserAccount("fakechen");
-            user.setAvatarUrl("https://github.com/janhjchen/remote-repo/blob/main/docs/assets/i.png");
+            user.setUserAccount("fakechen_" + i);
+            user.setAvatarUrl("https://raw.githubusercontent.com/janhjchen/remote-repo/main/docs/assets/i.png");
             user.setGender(0);
             user.setUserPassword("12345678");
             user.setPhone("123");
@@ -37,7 +37,7 @@ public class InsertUsers {
             user.setTags("[]");
             user.setUserStatus(0);
             user.setUserRole(0);
-            user.setPlanetCode("11111111");
+            user.setPlanetCode("1" + i);
             userMapper.insert(user);
         }
         stopWatch.stop();

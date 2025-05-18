@@ -35,8 +35,8 @@ public class InsertUsersTest {
         for (int i = 0; i < INSERT_NUM; i++) {
             User user = new User();
             user.setUsername("沈哈哈");
-            user.setUserAccount("fakechen" );
-            user.setAvatarUrl("https://github.com/janhjchen/remote-repo/blob/main/docs/assets/i.png");
+            user.setUserAccount("fakechen_" + i);
+            user.setAvatarUrl("https://raw.githubusercontent.com/janhjchen/remote-repo/main/docs/assets/i.png");
             user.setGender(0);
             user.setUserPassword("12345678");
             user.setPhone("123");
@@ -44,11 +44,11 @@ public class InsertUsersTest {
             user.setTags("[]");
             user.setUserStatus(0);
             user.setUserRole(0);
-            user.setPlanetCode("1");
+            user.setPlanetCode("1" + i);
             userList.add(user);
         }
         //  14 (14101) 秒 10 万条
-
+        //  2min25sec (144752) 秒 100 万条
 
         userService.saveBatch(userList, 10000);
         stopWatch.stop();
@@ -72,8 +72,8 @@ public class InsertUsersTest {
                 j++;
                 User user = new User();
                 user.setUsername("陈哈哈");
-                user.setUserAccount("fakechen");
-                user.setAvatarUrl("https://github.com/janhjchen/remote-repo/blob/main/docs/assets/i.png");
+                user.setUserAccount("fakechen_" + i);
+                user.setAvatarUrl("https://raw.githubusercontent.com/janhjchen/remote-repo/main/docs/assets/i.png");
                 user.setGender(0);
                 user.setUserPassword("12345678");
                 user.setPhone("123");
@@ -81,7 +81,7 @@ public class InsertUsersTest {
                 user.setTags("[]");
                 user.setUserStatus(0);
                 user.setUserRole(0);
-                user.setPlanetCode("11111111");
+                user.setPlanetCode("1" + i);
                 userList.add(user);
                 if (j % batchSize == 0) {
                     break;
@@ -96,7 +96,7 @@ public class InsertUsersTest {
         }
         CompletableFuture.allOf(futureList.toArray(new CompletableFuture[]{})).join();
         // 3 (3646) 秒 10 万条
-
+        // 27s445ms (27286) 秒 100 万条
         stopWatch.stop();
         System.out.println(stopWatch.getTotalTimeMillis());
     }

@@ -1,7 +1,7 @@
 package com.chen.yupao.service;
 
 import com.chen.yupao.model.domain.User;
-import org.junit.jupiter.api.Assert;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -97,6 +97,6 @@ public class UserServiceTest {
     public void testSearchUsersByTags() {
         List<String> tagNameList = Arrays.asList("java", "python");
         List<User> userList = userService.searchUsersByTags(tagNameList);
-        Assert.assertNotNull(userList);
+        Assertions.assertNotNull(userList);
     }
 }
